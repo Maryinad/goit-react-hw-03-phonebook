@@ -5,6 +5,8 @@ import { nanoid } from 'nanoid';
 import { Filter } from '../components/Filter/Filter.jsx';
 import { TitlePhone, TitleCont } from './App.styled';
 
+const LOCAL_CONTACTS = 'contacts';
+
 export class App extends Component {
   state = {
     contacts: [
@@ -15,6 +17,40 @@ export class App extends Component {
     ],
     filterTerm: '',
   };
+
+  // getLocalContacts() {
+  //   const localData = JSON.parse(localStorage.getItem(LOCAL_CONTACTS));
+  //   return localData;
+  // }
+
+  // componentDidMount() {
+  //   if (localStorage.length > 0) {
+  //     this.setState({
+  //       contacts: JSON.parse(localStorage.getItem(LOCAL_CONTACTS)),
+  //     });
+  //   }
+  // if (JSON.parse(localStorage.getItem('contacts'))) {
+  //   this.setState({
+  //     contacts: JSON.parse(localStorage.getItem('contacts')),
+  //   });
+  // }
+  // }
+
+  //????????????
+  componentDidMount() {
+    if (JSON.parse(localStorage.getItem('contacts'))) {
+      this.setState({
+        contacts: JSON.parse(localStorage.getItem('contacts')),
+      });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      const stringifiedContacts = JSON.stringify(this.state.contacts);
+      localStorage.setItem(LOCAL_CONTACTS, stringifiedContacts);
+    }
+  }
 
   //обрабатывает то, что возвращает наша форма, дальше через props onAddContact(можем назвать как угодно), передали эту функцию
   addContact = newContact => {
