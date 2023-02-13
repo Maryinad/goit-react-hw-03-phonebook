@@ -29,18 +29,14 @@ export class App extends Component {
   //       contacts: JSON.parse(localStorage.getItem(LOCAL_CONTACTS)),
   //     });
   //   }
-  // if (JSON.parse(localStorage.getItem('contacts'))) {
-  //   this.setState({
-  //     contacts: JSON.parse(localStorage.getItem('contacts')),
-  //   });
-  // }
-  // }
+  //
 
-  //????????????
   componentDidMount() {
-    if (JSON.parse(localStorage.getItem('contacts'))) {
+    const contacts = localStorage.getItem(LOCAL_CONTACTS);
+    const parsedContacts = JSON.parse(contacts);
+    if (parsedContacts) {
       this.setState({
-        contacts: JSON.parse(localStorage.getItem('contacts')),
+        contacts: parsedContacts,
       });
     }
   }
