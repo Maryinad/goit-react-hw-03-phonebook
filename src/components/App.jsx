@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { PhoneBook } from './PhoneBook/PhoneBook.jsx';
 import { ContactList } from './ContactList/ContactList.jsx';
-import { nanoid } from 'nanoid';
 import { Filter } from '../components/Filter/Filter.jsx';
 import { TitlePhone, TitleCont } from './App.styled';
 
@@ -17,19 +16,6 @@ export class App extends Component {
     ],
     filterTerm: '',
   };
-
-  // getLocalContacts() {
-  //   const localData = JSON.parse(localStorage.getItem(LOCAL_CONTACTS));
-  //   return localData;
-  // }
-
-  // componentDidMount() {
-  //   if (localStorage.length > 0) {
-  //     this.setState({
-  //       contacts: JSON.parse(localStorage.getItem(LOCAL_CONTACTS)),
-  //     });
-  //   }
-  //
 
   componentDidMount() {
     const contacts = localStorage.getItem(LOCAL_CONTACTS);

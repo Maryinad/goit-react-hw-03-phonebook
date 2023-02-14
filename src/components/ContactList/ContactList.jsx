@@ -1,8 +1,6 @@
 import { ContactItem } from './ContactItem';
 import PropTypes from 'prop-types';
 
-const newContactList = [];
-
 export function ContactList({ contacts, onDeleteBtn }) {
   return (
     <ul>
