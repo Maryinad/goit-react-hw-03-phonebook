@@ -34,7 +34,7 @@ export class PhoneBook extends Component {
     };
 
     //при submit в пропсах в форме наша ф-ция addContact, пропс onAddContact
-    console.log(this.props);
+    // console.log(this.props);
 
     //при сабмите формы функцию достаем с пропсов
     this.props.onAddContact(contact);
